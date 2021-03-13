@@ -1,5 +1,9 @@
 package medium;
 
+// 1315. Sum of Nodes with Even-Valued Grandparent
+
+import java.util.Optional;
+
 /**
  * Given a binary tree, return the sum of values of nodes with even-valued grandparent.  (A grandparent of a node is the parent of its parent, if it exists.)
  *
@@ -22,51 +26,8 @@ package medium;
 public class No1315 {
 
     public static void main(String[] args) {
-        sumEvenGrandparent(getTestcase01());
-    }
-
-    public static int sumEvenGrandparent(TreeNode root) {
-        return recursive(root);
-    }
-
-    private static int recursive(TreeNode node) {
-        int result = process(node);
-
-        if (node.right != null) {
-            result += recursive(node.right);
-        }
-
-        if (node.left != null) {
-            result += recursive(node.left);
-        }
-
-        return result;
-    }
-
-    private static int process(TreeNode node) {
-        int sum = 0;
-        if (node.val % 2 == 0) {
-            if (node.left != null) {
-                if (node.left.left != null) {
-                    sum += node.left.left.val;
-                }
-
-                if (node.left.right != null) {
-                    sum += node.left.right.val;
-                }
-            }
-
-            if (node.right != null) {
-                if (node.right.left != null) {
-                    sum += node.right.left.val;
-                }
-
-                if (node.right.right != null) {
-                    sum += node.right.right.val;
-                }
-            }
-        }
-        return sum;
+        Custom custom = new Custom();
+        custom.sumEvenGrandparent(getTestcase01());
     }
 
     private static TreeNode getTestcase01() {
@@ -97,5 +58,57 @@ public class No1315 {
         root.right = treeNode_1_1;
 
         return root;
+    }
+}
+
+class Custom {
+    public int sumEvenGrandparent(TreeNode root) {
+        return recursive(root);
+    }
+
+    private int recursive(TreeNode node) {
+        int result = process(node);
+
+        result += Optional.ofNullable(node.right)
+                .map(this::recursive)
+                .orElse(0);
+
+        result += Optional.ofNullable(node.left)
+                .map(this::recursive)
+                .orElse(0);
+
+        return result;
+    }
+
+    private int process(TreeNode node) {
+        int sum = 0;
+
+        if (isEvenValue(node.val)) {
+            sum += Optional.ofNullable(node.left)
+                    .map(leftNode -> leftNode.left)
+                    .map(leftLeftNode -> leftLeftNode.val)
+                    .orElse(0);
+
+            sum += Optional.ofNullable(node.left)
+                    .map(leftNode -> leftNode.right)
+                    .map(leftRightNode -> leftRightNode.val)
+                    .orElse(0);
+
+            sum += Optional.ofNullable(node.right)
+                    .map(rightNode -> rightNode.left)
+                    .map(rightLeftNode -> rightLeftNode.val)
+                    .orElse(0);
+
+            sum += Optional.ofNullable(node.right)
+                    .map(rightNode -> rightNode.right)
+                    .map(rightRightNode -> rightRightNode.val)
+                    .orElse(0);
+        }
+
+        return sum;
+    }
+
+    private boolean isEvenValue(int value) {
+        return value % 2 == 0;
     }
 }
