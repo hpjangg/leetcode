@@ -26,8 +26,9 @@ import java.util.Optional;
 public class No1315 {
 
     public static void main(String[] args) {
-        Custom custom = new Custom();
-        custom.sumEvenGrandparent(getTestcase01());
+        System.out.println(
+                new No1315Implement().sumEvenGrandparent(getTestcase01())
+        );
     }
 
     private static TreeNode getTestcase01() {
@@ -61,7 +62,8 @@ public class No1315 {
     }
 }
 
-class Custom {
+class No1315Implement {
+
     public int sumEvenGrandparent(TreeNode root) {
         return recursive(root);
     }

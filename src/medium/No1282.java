@@ -39,11 +39,19 @@ import java.util.List;
 public class No1282 {
 
     public static void main(String[] args) {
-        int[] testcase01 = {3,3,3,3,3,1,3};
-        groupThePeople(testcase01);
+        System.out.println(
+                new No1282Implement().groupThePeople(getTestcase01())
+        );
     }
 
-    private static List<List<Integer>> groupThePeople(int[] groupSizes) {
+    public static int[] getTestcase01() {
+        return new int[]{3,3,3,3,3,1,3};
+    }
+}
+
+class No1282Implement {
+
+    public List<List<Integer>> groupThePeople(int[] groupSizes) {
         List<List<Integer>> resultList = new ArrayList<>();
 
         for (int i = 0; i < groupSizes.length; i++) {
@@ -51,11 +59,8 @@ public class No1282 {
             if (groupSizes[i] != 0) {
                 int size = groupSizes[i];
                 for (int j = 0; j < groupSizes.length; j++) {
-                    if (groupSizes[j] != 0) {
-                        if (groupSizes[j] == size) {
-                            list.add(j);
-                            groupSizes[j] = 0;
-                        }
+                    if (isEnableIncluding(groupSizes[j], size)) {
+                        process(groupSizes, list, j);
                     }
                     if (list.size() == size) break;
                 }
@@ -66,4 +71,12 @@ public class No1282 {
         return resultList;
     }
 
+    private boolean isEnableIncluding(int people, int groupSize) {
+        return people != 0 && people == groupSize;
+    }
+
+    private void process(int[] groupSizes, List<Integer> list, int index) {
+        list.add(index);
+        groupSizes[index] = 0;
+    }
 }

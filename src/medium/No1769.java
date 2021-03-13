@@ -1,5 +1,7 @@
 package medium;
 
+import java.util.Arrays;
+
 /**
  * You have n boxes. You are given a binary string boxes of length n, where boxes[i] is '0' if the ith box is empty, and '1' if it contains one ball.
  *
@@ -35,14 +37,30 @@ package medium;
 public class No1769 {
 
     public static void main(String[] args) {
-        minOperations("110");
-        minOperations("001011");
+        System.out.println(
+                Arrays.toString(new No1769Implement().minOperations(getTestcase01()))
+        );
+        System.out.println(
+                Arrays.toString(new No1769Implement().minOperations(getTestcase01()))
+        );
     }
 
-    public static int[] minOperations(String boxes) {
-        String[] toStrArr = boxes.split("");
+    private static String getTestcase01() {
+        return "110";
+    }
 
-        int[] result = new int[toStrArr.length];
+    private static String getTestcase02() {
+        return "001011";
+    }
+
+}
+
+class No1769Implement {
+
+    public int[] minOperations(String boxes) {
+        int[] result = new int[boxes.length()];
+
+        String[] toStrArr = boxes.split("");
 
         for (int i = 0; i < toStrArr.length; i++) {
             for (int j = 0; j < toStrArr.length; j++) {
@@ -53,13 +71,13 @@ public class No1769 {
         return result;
     }
 
-    private static void moveBall(int i, int j, String[] toStrArr, int[] result) {
+    private void moveBall(int i, int j, String[] toStrArr, int[] result) {
         if (isExistBall(i, j, toStrArr[j])) {
             result[i] += Math.abs(i-j);
         }
     }
 
-    private static boolean isExistBall(int i, int j, String ball) {
+    private boolean isExistBall(int i, int j, String ball) {
         return i != j && ball.equals("1");
     }
 }
