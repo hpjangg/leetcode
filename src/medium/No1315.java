@@ -69,13 +69,17 @@ class No1315Implement {
     }
 
     private int recursive(TreeNode node) {
-        int result = process(node);
+        Optional<TreeNode> myNode = Optional.ofNullable(node);
 
-        result += Optional.ofNullable(node.right)
+        if (!myNode.isPresent()) return 0;
+
+        int result = process(myNode.get());
+
+        result += myNode.map(s -> s.left)
                 .map(this::recursive)
                 .orElse(0);
 
-        result += Optional.ofNullable(node.left)
+        result += myNode.map(s -> s.right)
                 .map(this::recursive)
                 .orElse(0);
 
@@ -85,26 +89,30 @@ class No1315Implement {
     private int process(TreeNode node) {
         int sum = 0;
 
-        if (isEvenValue(node.val)) {
-            sum += Optional.ofNullable(node.left)
-                    .map(leftNode -> leftNode.left)
-                    .map(leftLeftNode -> leftLeftNode.val)
+        Optional<TreeNode> myNode = Optional.of(node);
+
+        if (isEvenValue(myNode.get().val)) {
+
+            sum += myNode.map(s -> s.left)
+                    .map(s -> s.left)
+                    .map(s -> s.val)
                     .orElse(0);
 
-            sum += Optional.ofNullable(node.left)
-                    .map(leftNode -> leftNode.right)
-                    .map(leftRightNode -> leftRightNode.val)
+            sum += myNode.map(s -> s.left)
+                    .map(s -> s.right)
+                    .map(s -> s.val)
                     .orElse(0);
 
-            sum += Optional.ofNullable(node.right)
-                    .map(rightNode -> rightNode.left)
-                    .map(rightLeftNode -> rightLeftNode.val)
+            sum += myNode.map(s -> s.right)
+                    .map(s -> s.left)
+                    .map(s -> s.val)
                     .orElse(0);
 
-            sum += Optional.ofNullable(node.right)
-                    .map(rightNode -> rightNode.right)
-                    .map(rightRightNode -> rightRightNode.val)
+            sum += myNode.map(s -> s.right)
+                    .map(s -> s.right)
+                    .map(s -> s.val)
                     .orElse(0);
+
         }
 
         return sum;
