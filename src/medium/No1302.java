@@ -59,20 +59,22 @@ public class No1302 {
 class No1302Implement {
 
     public int deepestLeavesSum(TreeNode root) {
-        int result = 0;
-
         LinkedList<TreeNode> linkedList = initTreeForRoot(root);
 
         while (!linkedList.isEmpty()) {
-            result = 0;
-            for (int i = linkedList.size() - 1; i >= 0; i--) {
+            int result = 0;
+            for (int i = linkedList.size(); i > 0; i--) {
                 TreeNode node = linkedList.poll();
                 result += Optional.ofNullable(node).map(s -> s.val).orElse(0);
                 addForLinkedList(linkedList, node);
             }
+
+            if (linkedList.isEmpty()) {
+                return result;
+            }
         }
 
-        return result;
+        return 0;
     }
 
     private LinkedList<TreeNode> initTreeForRoot(TreeNode root) {
