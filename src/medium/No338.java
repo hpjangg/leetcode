@@ -1,5 +1,8 @@
 package medium;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+
 /**
  * Given an integer num, return an array of the number of 1's in the binary representation of every number in the range [0, num].
  *
@@ -42,13 +45,13 @@ public class No338 {
 
 class No338Implement {
     public int[] countBits(int num) {
-        int[] result = new int[num+1];
+        LinkedList<Integer> list = new LinkedList<>();
 
         for (int i = 0; i <= num; i++) {
-            String binaryString = Integer.toBinaryString(i).replaceAll("0", "");
-            result[i] = binaryString.length();
+            list.add(Integer.toBinaryString(i).replaceAll("0", "").length());
         }
 
-        return result;
+        return Arrays.stream(list.toArray(new Integer[0]))
+                .mapToInt(s -> s).toArray();
     }
 }
