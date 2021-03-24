@@ -60,6 +60,7 @@ public class No1315 {
 
         return root;
     }
+
 }
 
 class No1315Implement {
@@ -121,4 +122,5 @@ class No1315Implement {
     private boolean isEvenValue(int value) {
         return value % 2 == 0;
     }
+
 }

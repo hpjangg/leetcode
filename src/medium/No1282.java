@@ -47,6 +47,7 @@ public class No1282 {
     public static int[] getTestcase01() {
         return new int[]{3,3,3,3,3,1,3};
     }
+
 }
 
 class No1282Implement {
@@ -79,4 +80,5 @@ class No1282Implement {
         list.add(index);
         groupSizes[index] = 0;
     }
+
 }

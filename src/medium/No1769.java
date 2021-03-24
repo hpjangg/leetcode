@@ -80,4 +80,5 @@ class No1769Implement {
     private boolean isExistBall(int i, int j, String ball) {
         return i != j && ball.equals("1");
     }
+
 }

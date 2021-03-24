@@ -44,14 +44,28 @@ public class No338 {
 }
 
 class No338Implement {
+
     public int[] countBits(int num) {
         LinkedList<Integer> list = new LinkedList<>();
 
         for (int i = 0; i <= num; i++) {
-            list.add(Integer.toBinaryString(i).replaceAll("0", "").length());
+            list.add(getLength(i));
         }
 
         return Arrays.stream(list.toArray(new Integer[0]))
                 .mapToInt(s -> s).toArray();
     }
+
+    private Integer getLength(Integer i) {
+        return removeZero(toBinaryString(i)).length();
+    }
+
+    private String removeZero(String s) {
+        return s.replaceAll("0", "");
+    }
+
+    private String toBinaryString(Integer i) {
+        return Integer.toBinaryString(i);
+    }
+
 }
