@@ -15,7 +15,6 @@ class No46Implement {
 
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
-
         return list;
     }
 
