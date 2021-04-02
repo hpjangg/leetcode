@@ -3,12 +3,12 @@ package easy.interview;
 public class RemoveDuplicatesFromSortedArray {
 
     public static void main(String[] args) {
-        new Implement().removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4});
+        new RemoveDuplicatesFromSortedArrayImp().removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4});
     }
 
 }
 
-class Implement {
+class RemoveDuplicatesFromSortedArrayImp {
 
     public int removeDuplicates(int[] nums) {
         int index = 1;
