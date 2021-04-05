@@ -18,9 +18,6 @@ class No4Imp {
         Arrays.sort(A);
         Arrays.sort(B);
 
-        // 1, 1, 2, 3
-        // 2, 2, 3, 4, 5
-
         int i = 0;
         for (int k = 0; k < n; k++) {
             if (B[i] < A[k])

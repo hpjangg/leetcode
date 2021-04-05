@@ -5,16 +5,24 @@ import java.util.Arrays;
 public class No3 {
 
     public static void main(String[] args) {
-//        new No3Imp().solution(new int[]{3,2,-2,5,-3});
-        new No3Imp().solution(new int[]{1, 2, 3, -4});
+        new No3Imp().solution(new int[]{3,2,-2,5,-3});
+//        new No3Imp().solution(new int[]{1, 2, 3, -4});
     }
 
 }
 
 class No3Imp {
 
-    // -3, -2, 2, 3, 5
-    // -6, -2, 2, 3, 5
+    /**
+     * case
+     *
+     * [3,2,-2,5,-3]
+     *
+     * expected
+     *
+     * 3
+     *
+     */
 
     public int solution(int[] A) {
         Arrays.sort(A);

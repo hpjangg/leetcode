@@ -11,6 +11,16 @@ public class No1 {
 
 class No1Imp {
 
+    /**
+     * case
+     *
+     * [2,1,1,0,1]
+     *
+     * expected
+     *
+     * 111000,10001
+     */
+
     public String solution(int U, int L, int[] C) {
         StringBuilder uBuilder = new StringBuilder();
         StringBuilder lBuilder = new StringBuilder();
