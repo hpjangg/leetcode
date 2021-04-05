@@ -21,4 +21,5 @@ class BestTimeToBuyAndSellStock2Imp {
 
         return result;
     }
+
 }
