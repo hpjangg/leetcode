@@ -6,6 +6,10 @@ public class RotateArray {
         new RotateArray().rotate(new int[]{1,2,3,4,5,6,7}, 3);
     }
 
+    /**
+     * 시간복잡도
+     * k * (n - 1) = O(n)
+     */
     public void rotate(int[] nums, int k) {
 
         while (k > 0) {
