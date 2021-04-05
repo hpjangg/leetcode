@@ -6,14 +6,10 @@ import java.util.List;
 public class No763_FAIL {
 
     public static void main(String[] args) {
-//        new No763Implement().partitionLabels("ababcbacadefegdehijhklij");
-//        new No763Implement().partitionLabels("caedbdedda");
-        new No763Implement().partitionLabels("eaaaabaaec");
+//        new No763_FAIL().partitionLabels("ababcbacadefegdehijhklij");
+//        new No763_FAIL().partitionLabels("caedbdedda");
+        new No763_FAIL().partitionLabels("eaaaabaaec");
     }
-
-}
-
-class No763Implement {
 
     public List<Integer> partitionLabels(String S) {
         List<Integer> resList = new LinkedList<>();

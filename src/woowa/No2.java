@@ -6,17 +6,13 @@ import java.util.stream.Collectors;
 public class No2 {
 
     public static void main(String[] args) {
-        new No2Imp().solution("my.song.mp3 11b\n" +
+        new No2().solution("my.song.mp3 11b\n" +
                 "greatSong.flac 1000b\n" +
                 "not3.txt 5b\n" +
                 "video.mp4 200b\n" +
                 "game.exe 100b\n" +
                 "mov!e.mkv 10000b");
     }
-
-}
-
-class No2Imp {
 
     /**
      * case
@@ -87,6 +83,7 @@ class No2Imp {
         result.append("other ").append(otherByte).append("b");
         return result;
     }
+
 }
 
 enum MusicType {

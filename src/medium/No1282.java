@@ -40,17 +40,13 @@ public class No1282 {
 
     public static void main(String[] args) {
         System.out.println(
-                new No1282Implement().groupThePeople(getTestcase01())
+                new No1282().groupThePeople(getTestcase01())
         );
     }
 
     public static int[] getTestcase01() {
         return new int[]{3,3,3,3,3,1,3};
     }
-
-}
-
-class No1282Implement {
 
     public List<List<Integer>> groupThePeople(int[] groupSizes) {
         List<List<Integer>> resultList = new ArrayList<>();

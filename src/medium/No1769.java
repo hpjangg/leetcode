@@ -38,10 +38,10 @@ public class No1769 {
 
     public static void main(String[] args) {
         System.out.println(
-                Arrays.toString(new No1769Implement().minOperations(getTestcase01()))
+                Arrays.toString(new No1769().minOperations(getTestcase01()))
         );
         System.out.println(
-                Arrays.toString(new No1769Implement().minOperations(getTestcase01()))
+                Arrays.toString(new No1769().minOperations(getTestcase02()))
         );
     }
 
@@ -52,10 +52,6 @@ public class No1769 {
     private static String getTestcase02() {
         return "001011";
     }
-
-}
-
-class No1769Implement {
 
     public int[] minOperations(String boxes) {
         int[] result = new int[boxes.length()];

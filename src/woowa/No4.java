@@ -5,12 +5,8 @@ import java.util.Arrays;
 public class No4 {
 
     public static void main(String[] args) {
-        new No4Imp().solution(new int[]{1,3,2,1}, new int[]{4,2,5,3,2});
+        new No4().solution(new int[]{1,3,2,1}, new int[]{4,2,5,3,2});
     }
-
-}
-
-class No4Imp {
 
     int solution(int[] A, int[] B) {
         int n = A.length;

@@ -27,7 +27,7 @@ public class No1302 {
 
     public static void main(String[] args) {
         System.out.println(
-                new No1302Implement().deepestLeavesSum(getTestCase01())
+                new No1302().deepestLeavesSum(getTestCase01())
         );
     }
 
@@ -53,10 +53,6 @@ public class No1302 {
 
         return root;
     }
-
-}
-
-class No1302Implement {
 
     public int deepestLeavesSum(TreeNode root) {
         LinkedList<TreeNode> linkedList = initTreeForRoot(root);
@@ -92,3 +88,4 @@ class No1302Implement {
     }
 
 }
+

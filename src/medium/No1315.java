@@ -27,7 +27,7 @@ public class No1315 {
 
     public static void main(String[] args) {
         System.out.println(
-                new No1315Implement().sumEvenGrandparent(getTestcase01())
+                new No1315().sumEvenGrandparent(getTestcase01())
         );
     }
 
@@ -60,10 +60,6 @@ public class No1315 {
 
         return root;
     }
-
-}
-
-class No1315Implement {
 
     public int sumEvenGrandparent(TreeNode root) {
         return recursive(root);

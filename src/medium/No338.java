@@ -38,12 +38,8 @@ import java.util.LinkedList;
 public class No338 {
 
     public static void main(String[] args) {
-        new No338Implement().countBits(2);
+        new No338().countBits(2);
     }
-
-}
-
-class No338Implement {
 
     public int[] countBits(int num) {
         LinkedList<Integer> list = new LinkedList<>();
