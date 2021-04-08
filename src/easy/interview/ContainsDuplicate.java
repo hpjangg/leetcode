@@ -9,6 +9,10 @@ public class ContainsDuplicate {
         new ContainsDuplicate().containsDuplicate(new int[]{1,2,3,1});
     }
 
+    /**
+     * 시간복잡도
+     * O(n)
+     */
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
 
