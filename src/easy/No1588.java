@@ -9,13 +9,18 @@ public class No1588 {
     public int sumOddLengthSubarrays(int[] arr) {
         int result = 0;
 
-        int odd = 3;
+        int odd = initOdd();
+
         for (int i = 0; i < arr.length; i++) {
             result += arr[i];
             result += oddProcess(arr, i, odd);
         }
 
         return result;
+    }
+
+    private int initOdd() {
+        return 3;
     }
 
     private int oddProcess(int[] arr, int idx, int odd) {
