@@ -1,4 +1,4 @@
-package easy.interview;
+package easy.interview.array;
 
 public class RotateArray {
 
