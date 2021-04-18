@@ -6,6 +6,10 @@ public class RemoveDuplicatesFromSortedArray {
         new RemoveDuplicatesFromSortedArray().removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4});
     }
 
+    /**
+     * 시간복잡도
+     * O(n)
+     */
     public int removeDuplicates(int[] nums) {
         int idx = 1;
 
