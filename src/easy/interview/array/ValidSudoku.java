@@ -7,6 +7,7 @@ public class ValidSudoku {
 
     private static final int DOT = 46;
     private static final int ALL_BOX_COUNT = 9;
+    private static final int CHECK_SIZE = 3;
 
     public static void main(String[] args) {
         boolean testCase1 = new ValidSudoku().isValidSudoku(
@@ -60,7 +61,7 @@ public class ValidSudoku {
     }
 
     private boolean checkColumns(char[][] board) {
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < ALL_BOX_COUNT; i++) {
             Set<Integer> colValues = new HashSet<>();
             for (char[] chars : board) {
                 if (chars[i] != DOT) {
@@ -81,8 +82,8 @@ public class ValidSudoku {
 
         while (boxCnt < ALL_BOX_COUNT) {
             Set<Integer> boxValues = new HashSet<>();
-            for (int i = colIdx; i < colIdx+3; i++) {
-                for (int j = rowIdx; j < rowIdx+3; j++) {
+            for (int i = colIdx; i < colIdx+CHECK_SIZE; i++) {
+                for (int j = rowIdx; j < rowIdx+CHECK_SIZE; j++) {
                     if (board[i][j] != DOT) {
                         if (boxValues.contains((int) board[i][j])) {
                             return false;
@@ -92,11 +93,11 @@ public class ValidSudoku {
                 }
             }
 
-            colIdx += 3;
+            colIdx += CHECK_SIZE;
 
             if (colIdx == ALL_BOX_COUNT) {
                 colIdx = 0;
-                rowIdx += 3;
+                rowIdx += CHECK_SIZE;
             }
 
             boxCnt++;
