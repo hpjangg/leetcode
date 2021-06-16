@@ -15,43 +15,7 @@ public class ThreeSum_FAIL {
     }
 
     public List<List<Integer>> threeSum(int[] nums) {
-
         List<List<Integer>> result = new ArrayList<>();
-
-        if (nums.length < 3) return result;
-
-        List<Integer> numsList = new ArrayList<>();
-        for (int num: nums) {
-            numsList.add(num);
-        }
-
-        int sum;
-
-        for (int i = 0; i < numsList.size(); i++) {
-            for (int j = i+1; j < numsList.size(); j++) {
-                for (int k = j+1; k < numsList.size(); k++) {
-                    Integer iVal = numsList.get(i);
-                    Integer jVal = numsList.get(j);
-                    Integer kVal = numsList.get(k);
-
-                    sum = iVal + jVal + kVal;
-
-                    if (sum == 0) {
-                        List<Integer> list = new ArrayList<>();
-                        list.add(iVal);
-                        list.add(jVal);
-                        list.add(kVal);
-                        Collections.sort(list);
-                        result.add(list);
-                    }
-                }
-            }
-        }
-
-        Map<List<Integer>, Long> map = result.stream()
-                .collect(Collectors.groupingBy(arg -> arg, HashMap::new, Collectors.counting()));
-
-        result = new ArrayList<>(map.keySet());
 
         return result;
     }
