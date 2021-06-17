@@ -1,4 +1,4 @@
-package medium.interview;
+package medium.interview.arrayandstrings;
 
 import java.util.*;
 
@@ -29,7 +29,7 @@ public class ThreeSum {
                     seen.put(nums[j], i);
                 }
             }
-        return new ArrayList(res);
+        return new ArrayList<>(res);
     }
 
 }
