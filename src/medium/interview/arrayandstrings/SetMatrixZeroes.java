@@ -5,6 +5,8 @@ import java.util.Set;
 
 public class SetMatrixZeroes {
 
+    // https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/array-and-strings/777/
+
     public static void main(String[] args) {
         new SetMatrixZeroes().setZeroes(new int[][]{{0,1,2,0},{3,4,5,2},{1,3,1,5}});
     }
