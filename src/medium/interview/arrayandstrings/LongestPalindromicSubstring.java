@@ -22,6 +22,7 @@ public class LongestPalindromicSubstring {
                 end = i + len / 2;
             }
         }
+
         return s.substring(start, end + 1);
     }
 
