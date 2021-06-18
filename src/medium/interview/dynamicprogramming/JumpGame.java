@@ -1,5 +1,7 @@
 package medium.interview.dynamicprogramming;
 
+import java.util.Arrays;
+
 public class JumpGame {
 
     public static void main(String[] args) {
@@ -29,9 +31,7 @@ public class JumpGame {
 
     public boolean canJump(int[] nums) {
         memo = new Index[nums.length];
-        for (int i = 0; i < memo.length; i++) {
-            memo[i] = Index.UNKNOWN;
-        }
+        Arrays.fill(memo, Index.UNKNOWN);
         memo[memo.length - 1] = Index.GOOD;
         return canJumpFromPosition(0, nums);
     }
