@@ -1,4 +1,4 @@
-package hard.interview;
+package hard.interview.arrayandstrings;
 
 import java.util.Collections;
 import java.util.HashMap;
